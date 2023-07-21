@@ -1,0 +1,61 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="LightControl.Views.SliderDemo">
+
+    <UserControl.Styles>
+        <Style Selector="Slider /template/ Thumb">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Width="8" Height="15" CornerRadius="3" Background="Gray" Margin="0" Padding="0" BorderBrush="SlateGray" BorderThickness="1"/>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Slider">
+            <Setter Property="Foreground" Value="Yellow"/>
+        </Style>
+        
+        <Style Selector="Slider:pointerover /template/ RepeatButton#PART_IncreaseButton">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Background" Value="White" />
+        </Style>
+        <Style Selector="Slider:pointerover /template/ RepeatButton#PART_DecreaseButton">
+            <Setter Property="Background" Value="Brown" />
+        </Style>
+        
+        <!-- pointerover must be before pressed -->
+        <Style Selector="Slider:pressed /template/ RepeatButton#PART_IncreaseButton">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Background" Value="Black"/>
+        </Style>
+        <Style Selector="Slider:pressed /template/ RepeatButton#PART_DecreaseButton">
+            <Setter Property="Background" Value="HotPink" />
+        </Style>
+  
+        <Style Selector="Slider.Slider_red:pointerover /template/ Grid#SliderContainer">
+            <Setter Property="Background" Value="Green" />
+        </Style>
+  
+        <Style Selector="Slider#CustomSlider:pointerover /template/ Grid#SliderContainer">
+            <Setter Property="Background" Value="RosyBrown" />
+        </Style>
+    </UserControl.Styles>
+
+
+    <StackPanel>
+        <Slider Classes="Slider_red" Width="400" Height="40" Minimum="0" Maximum="100" Value="50"
+                Background="Yellow" />
+        
+        <Slider Name="CustomSlider"
+                Width="400"
+                Value="0"
+                Maximum="255"/>
+
+        <StackPanel>
+            <Button Width="100" Height="50" Background="Black">Hi</Button>
+        </StackPanel>
+    </StackPanel>
+    
+</UserControl>

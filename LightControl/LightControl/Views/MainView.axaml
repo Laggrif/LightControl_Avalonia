@@ -1,0 +1,101 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:LightControl.Views"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="LightControl.Views.MainView"
+             x:DataType="vm:MainView"
+             x:CompileBindings="True">
+    
+    <UserControl.Resources>
+        <vm:ValueToOpacity x:Key="ValueToOpacity" />
+        <vm:ValuesToRGB x:Key="ValuesToRgb" />
+        <x:String x:Key="R">r</x:String>
+        <x:String x:Key="G">g</x:String>
+        <x:String x:Key="B">b</x:String>
+        <x:String x:Key="W">w</x:String>
+    </UserControl.Resources>
+    
+    <UserControl.Styles>
+        <StyleInclude Source="/Styles/Styles.axaml" />
+    </UserControl.Styles>
+    
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition Height="0.08*" MinHeight="30"></RowDefinition>
+            <RowDefinition Height="0.08*" MinHeight="30"></RowDefinition>
+            <RowDefinition Height="0.08*" MinHeight="30"></RowDefinition>
+            <RowDefinition Height="0.08*" MinHeight="30"></RowDefinition>
+            <RowDefinition Height="0.08*" MinHeight="30"></RowDefinition>
+            <RowDefinition Height="0.15*" MinHeight="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*" />
+            <ColumnDefinition Width="*" MinWidth="255" />
+            <ColumnDefinition Width="0.3*" />
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.Row="0" Grid.Column="1"
+                   TextAlignment="Center"
+                   VerticalAlignment="Bottom" >
+            Connected
+        </TextBlock>
+            
+        <Slider Classes="Slider_red" Name="Red"
+                Minimum="0" Maximum="255" Value="0"
+                Background="Black"
+                Foreground="{Binding Value, ElementName=Red, Converter={StaticResource ValueToOpacity}, ConverterParameter={StaticResource R}}"
+                Grid.Row="2" Grid.Column="1"
+                VerticalAlignment="Center"
+                ValueChanged="Red_OnValueChange"/>
+        
+        <Slider Classes="Slider_green" Name="Green"
+                Minimum="0" Maximum="255" Value="0"
+                Background="Black"
+                Foreground="{Binding Value, ElementName=Green, Converter={StaticResource ValueToOpacity}, ConverterParameter={StaticResource G}}"
+                Grid.Row="3" Grid.Column="1"
+                VerticalAlignment="Center"
+                ValueChanged="Green_OnValueChange"/>
+        
+        <Slider Classes="Slider_blue" Name="Blue"
+                Minimum="0" Maximum="255" Value="0"
+                Background="Black"
+                Foreground="{Binding Value, ElementName=Blue, Converter={StaticResource ValueToOpacity}, ConverterParameter={StaticResource B}}"
+                Grid.Row="4" Grid.Column="1"
+                ValueChanged="Blue_OnValueChange"/>
+        
+        <Slider Classes="Slider_white" Name="White"
+                Minimum="0" Maximum="255" Value="0"
+                Background="Black"                
+                Foreground="{Binding Value, ElementName=White, Converter={StaticResource ValueToOpacity}, ConverterParameter={StaticResource W}}"
+                Grid.Row="5" Grid.Column="1"
+                ValueChanged="White_OnValueChange"/>
+        
+        <Slider Classes="Slider_brightness" Name="Brightness"
+                Minimum="0" Maximum="255" Value="0"
+                Background="Black"
+                Grid.Row="6" Grid.Column="1"
+                ValueChanged="Alpha_OnValueChange" >
+            <Slider.Foreground>
+                <MultiBinding Converter="{StaticResource ValuesToRgb}">
+                    <Binding Path="Value" ElementName="Red"></Binding>
+                    <Binding Path="Value" ElementName="Green"></Binding>
+                    <Binding Path="Value" ElementName="Blue"></Binding>
+                    <Binding Path="Value" ElementName="White"></Binding>
+                    <Binding Path="Value" ElementName="Brightness"></Binding>
+                </MultiBinding>
+            </Slider.Foreground>
+        </Slider>
+        
+        <Button Grid.Row="7" Grid.Column="1"
+                Width="60" Height="30"
+                Background="Gray" Foreground="Aqua"
+                HorizontalContentAlignment="Center"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">Send</Button>
+    </Grid>
+    
+</UserControl>

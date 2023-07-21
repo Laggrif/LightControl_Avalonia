@@ -1,0 +1,13 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:LightControl.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:LightControl.Views"
+        mc:Ignorable="d" d:DesignWidth="520" d:DesignHeight="650" MinWidth="300" MinHeight="270" Width="520" Height="650"
+        x:Class="LightControl.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Background="#222222"
+        Title="LightControl">
+        <views:MainView />
+</Window>

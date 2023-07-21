@@ -1,0 +1,57 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:LightControl.Converters">
+    
+    <Styles.Resources>
+        <local:DarkenClick x:Key="DarkenClick"/>
+    </Styles.Resources>
+    
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+            <Slider Width="200" Classes="Test"></Slider>
+        </Border>
+    </Design.PreviewWith>
+    
+    <Style Selector="Slider">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Foreground" Value="Red"/>
+        <Setter Property="Background" Value="Yellow"/>
+    </Style>
+    <Style Selector="Slider:pressed">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Foreground" Value="{TemplateBinding Foreground}"/>
+        <Setter Property="Background" Value="{TemplateBinding Background}"/>
+    </Style>
+    
+    <Style Selector="Slider /template/ Thumb">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Width="8" Height="15" CornerRadius="3" Background="Gray" Margin="-5" Padding="-5" BorderBrush="SlateGray" BorderThickness="1"/>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Slider /template/ Grid">
+        <Setter Property="Margin" Value="-6 -15 -6 0" />
+    </Style>
+        
+    <Style Selector="Slider:pointerover /template/ RepeatButton#PART_IncreaseButton">
+        <Setter Property="Background" Value="{TemplateBinding Background}" />
+    </Style>
+    <Style Selector="Slider:pointerover /template/ RepeatButton#PART_DecreaseButton">
+        <Setter Property="Background" Value="{TemplateBinding Foreground}" />
+    </Style>
+        
+    <!-- pointerover must be before pressed -->
+    <Style Selector="Slider:pressed /template/ RepeatButton#PART_IncreaseButton">
+        <Setter Property="Background" Value="{TemplateBinding Background, Converter={StaticResource DarkenClick}}" />
+    </Style>
+    <Style Selector="Slider:pressed /template/ RepeatButton#PART_DecreaseButton">
+        <Setter Property="Background" Value="{TemplateBinding Foreground, Converter={StaticResource DarkenClick}}" />
+    </Style>
+  
+    <Style Selector="Slider.Test:pointerover /template/ Grid#SliderContainer">
+        <Setter Property="Background" Value="Green" />
+    </Style>
+</Styles>

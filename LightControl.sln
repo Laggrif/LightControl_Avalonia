@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightControl", "LightControl\LightControl\LightControl.csproj", "{F44248F1-B5B3-458B-8700-6290AFDA4184}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightControl.Android", "LightControl\LightControl.Android\LightControl.Android.csproj", "{644B2862-02A6-4A25-9E87-8F4B75CF713B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightControl.Desktop", "LightControl\LightControl.Desktop\LightControl.Desktop.csproj", "{5B75E910-7433-439D-A670-E0B850CF82C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F44248F1-B5B3-458B-8700-6290AFDA4184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F44248F1-B5B3-458B-8700-6290AFDA4184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F44248F1-B5B3-458B-8700-6290AFDA4184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F44248F1-B5B3-458B-8700-6290AFDA4184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F44248F1-B5B3-458B-8700-6290AFDA4184}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{644B2862-02A6-4A25-9E87-8F4B75CF713B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{644B2862-02A6-4A25-9E87-8F4B75CF713B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{644B2862-02A6-4A25-9E87-8F4B75CF713B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{644B2862-02A6-4A25-9E87-8F4B75CF713B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{644B2862-02A6-4A25-9E87-8F4B75CF713B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{644B2862-02A6-4A25-9E87-8F4B75CF713B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B75E910-7433-439D-A670-E0B850CF82C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B75E910-7433-439D-A670-E0B850CF82C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B75E910-7433-439D-A670-E0B850CF82C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B75E910-7433-439D-A670-E0B850CF82C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B75E910-7433-439D-A670-E0B850CF82C3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+	EndGlobalSection
+EndGlobal
